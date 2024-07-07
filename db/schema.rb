@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_07_012716) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_07_034528) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.integer "birth_year"
+    t.boolean "is_alive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -20,6 +28,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_07_012716) do
     t.boolean "for_sale"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "artist_id"
+    t.index ["artist_id"], name: "index_artworks_on_artist_id"
   end
 
+  add_foreign_key "artworks", "artists"
 end
