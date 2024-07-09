@@ -1,7 +1,7 @@
 <h1>Karl's Most Epic Imaginary Art Collection</h1>
 <% @artworks.each do |artwork| %>
-  <h3>Title: <%= artwork.title %></h3>
-  <h3>Artist: <%= artwork.artist %></h3>
+  <h2>Title: <%= artwork.title %></h2>
+  <h3>Artist: <%= artwork.artist.name %></h3>
   <h4>Year: <%= artwork.year_made %></h4>
   <h4>For Sale: <%= artwork.for_sale %></h4>
 <% end %>

@@ -1,0 +1,7 @@
+<% @artworks.each do |artwork| %>
+  <h1><%= artwork.artist.name %></h1>
+  <h2>Pieces in Collection:</h2>
+  <h3>Title: <%= artwork.title %></h3>
+  <h4>Year: <%= artwork.year_made %></h4>
+  <h4>For Sale: <%= artwork.for_sale %></h4>
+<% end %>
